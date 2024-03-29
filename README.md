@@ -65,5 +65,54 @@ if _name_ == "_main_":
 
 ### Decriptor
 ```
+from scapy.all import rdpcap
+
+def get_icmp_byte_ascii(file_path, byte_index): #Función para sacar los valores ascii del byte
+    packets = rdpcap(file_path)
+
+    byte_values = []
+
+    for packet in packets:
+        if packet.haslayer("ICMP"):
+            icmp_data = bytes(packet["ICMP"])
+
+            if byte_index < len(icmp_data):
+                byte_value = icmp_data[byte_index]
+                byte_ascii = chr(byte_value)
+                byte_values.append(byte_ascii)
+
+    return byte_values
+
+def caesar_decipher(text, shift):	#Función para decriptar el cifrado cesar
+    decrypted_text = ""
+    for char in text:
+        if char.isupper():
+            decrypted_text += chr((ord(char) - shift - 65) % 26 + 65)
+        elif char.islower():
+            decrypted_text += chr((ord(char) - shift - 97) % 26 + 97)
+        else:
+            decrypted_text += char
+    return decrypted_text
+    
+
+file_name = input("Ingresar el nombre del archivo pcapng (con extension): ")
+
+file_path = "/tmp/" + file_name
+
+byte_index = 16 
+
+byte_ascii_values = get_icmp_byte_ascii(file_path, byte_index)
+
+if byte_ascii_values:
+	string_original = ''.join(byte_ascii_values)
+	
+	for shift in range(26):
+		decrypted_string = caesar_decipher(string_original,shift) #Se imprimen los valores, si ese el que posee llave 9, se imprime verde
+		if shift==9:
+			print(f"\033[92mLlave {shift}: {decrypted_string}\033[0m")
+		else:
+			print(f"Llave {shift}: {decrypted_string}")
+else:
+    print("No ICMP packets with the specified byte index found in the capture file.")
 ```
-**Uso terminal: sudo python3 decriptor.py "nombrepcap".pcap**
+**Uso terminal: sudo python3 readv2.py "nombrepcap.pcap"**
