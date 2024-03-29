@@ -19,6 +19,9 @@ print("Cifrado: " + encrypt(text, s))
 ```
 **Uso terminal: sudo python3 cesar.py "texto" "numero"**
 
+![cesar](https://github.com/misqcl/CriptoLab/assets/125618459/267c9d1d-d15b-49af-9028-f167f27c6f81)
+![CesarTerminal](https://github.com/misqcl/CriptoLab/assets/125618459/79d9c2bf-886e-42c1-b90a-e7dbca954e6a)
+
 ### PINGV4
 ```
 from scapy.all import *
@@ -62,6 +65,9 @@ if _name_ == "_main_":
     send_ping_with_data_payload(destination_ip, data_string)
 ```
 **Uso terminal:  sudo python3 pingv4.py "texto"**
+
+![pingv4](https://github.com/misqcl/CriptoLab/assets/125618459/d58aa746-bbb6-45a5-987c-55ed96556205)
+![pingv4Terminal](https://github.com/misqcl/CriptoLab/assets/125618459/23fbefbd-49f6-46d6-a5df-a96d6ed92611)
 
 ### Decriptor
 ```
@@ -116,4 +122,6 @@ else:
     print("No ICMP packets with the specified byte index found in the capture file.")
 ```
 **Uso terminal: sudo python3 readv2.py "nombrepcap.pcap"**
-##Orden Imágenes
+
+![readv2](https://github.com/misqcl/CriptoLab/assets/125618459/c6f5de65-d243-4ae7-aadc-548c0b02d302)
+![readv2Terminal](https://github.com/misqcl/CriptoLab/assets/125618459/61c7871e-2f8f-4dc4-a527-18c6eb8a1274)
