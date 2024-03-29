@@ -116,3 +116,4 @@ else:
     print("No ICMP packets with the specified byte index found in the capture file.")
 ```
 **Uso terminal: sudo python3 readv2.py "nombrepcap.pcap"**
+##Orden Imágenes
