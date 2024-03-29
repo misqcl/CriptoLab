@@ -16,7 +16,7 @@ def encrypt(text, s):
 text = input(" ")
 s = int(input(" "))
 
-print("Cipher: " + encrypt(text, s))
+print("Cifrado: " + encrypt(text, s))
 ```
 **Uso terminal: sudo python3 cesar.py "texto" "numero"**
 
