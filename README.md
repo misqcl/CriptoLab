@@ -24,17 +24,13 @@ print("Cipher: " + encrypt(text, s))
 Uso terminal: sudo python3 cesar.py "texto" "numero" 
 
 #PINGV4
-
 import argparse
 from scapy.all import IP, ICMP, send
 
 def send_text_over_icmp(destination_ip, text):
     for char in text:
-        # Convert the character to its ASCII code
         ascii_code = ord(char)
-        # Construct the ICMP packet with the ASCII code as the least significant byte
         icmp_packet = IP(dst=destination_ip)/ICMP(type=8, id=ascii_code)
-        # Send the ICMP packet
         send(icmp_packet)
 
 if __name__ == "__main__":
