@@ -1,29 +1,27 @@
 # CriptoLab
 
-Códigos usados:
+## Códigos usados:
 
-#Cesar
+### Cesar
+```
 def encrypt(text, s):
     result = ""
-
     for i in range(len(text)):
         char = text[i]
-
         if char.isupper():
             result += chr((ord(char) + s - 65) % 26 + 65)
         else:
             result += chr((ord(char) + s - 97) % 26 + 97)
-
     return result
 text = input(" ")
 s = int(input(" "))
 
-
 print("Cipher: " + encrypt(text, s))
+```
+**Uso terminal: sudo python3 cesar.py "texto" "numero"**
 
-Uso terminal: sudo python3 cesar.py "texto" "numero" 
-
-#PINGV4
+### PINGV4
+```
 import argparse
 from scapy.all import IP, ICMP, send
 
@@ -41,9 +39,10 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     send_text_over_icmp(args.destination_ip, args.text)
+```
+**Uso terminal:  sudo python3 pingv4.py "ip destino" "texto"**
 
-Uso terminal:  sudo python3 pingv4.py "ip destino" "texto"
-
-#Decriptor
-    
-Uso terminal: sudo python3 decriptor.py "nombrepcap".pcap
+### Decriptor
+```
+```
+**Uso terminal: sudo python3 decriptor.py "nombrepcap".pcap**
